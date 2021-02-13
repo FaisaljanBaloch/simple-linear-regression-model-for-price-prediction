@@ -1,0 +1,1 @@
+# simple-linear-regression-model-for-price-prediction
