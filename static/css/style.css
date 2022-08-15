@@ -1,5 +1,90 @@
+/* Color Scheme */
+:root {
+	--primary: #0f5098;
+	--dark: #242629;
+	--light: #f4f6f8;
+}
+
 *, *::before, *::after {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+html {
+	font-size: 1em;
+	font-family: Georgia, times, serif;
+}
+
+body {
+	background-color: var(--light);
+}
+
+.container {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+}
+
+.form_container {
+	padding: 1em 2em;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	width: 80%;
+}
+
+.form_container legend {
+	font-size: 1.25em;
+}
+
+.form_field {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.form_field > input{
+	padding: .75em;
+	margin: .25em 0em;
+	font-size: .85em;
+}
+
+.submit_button {
+	width: 100%;
+}
+.submit_button > button {
+	width: 100%;
+	padding: .75em 2em;
+	background-color: var(--primary);
+	color: white;
+	border: none;
+	border-radius: 0.5em;
+}
+
+.submit_button > button:hover, .submit_button > button:focus {
+	transition: all 300ms ease-in-out;
+	background-color: #396898;
+}
+
+.alert {
+	padding: 1em;
+	border-radius: 0.5em;
+	border: 2px solid var(--light);
+	background-color: lightgreen;
+	color: var(--dark);
+}
+
+@media (min-width: 460px) {
+	.form_container {
+		width: 30em;
+	}
+
+	.form_container legend {
+		font-size: 2em;
+	}
+
+	.submit_button > button {
+		width: 50%;
+	}
 }
