@@ -1,34 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Simple LinearRegression Model in Python - Faisal Jan</title>
-	<link rel="stylesheet" href="static/css/style.css">
-</head>
-<body>
-	<div class="container">
-		<form action="/predict" method="post">
-			<fieldset class="form_container">
-				<legend>House Price Predictor</legend>
-				<div class="form_field">
-					<label for="size_of_house">Size of House (in sqft)</label>
-					<input type="number" name="size_of_house" placeholder="Enter Here..." required>
-				</div>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple LinearRegression Model in Python - Faisal Jan</title>
+    <link rel="stylesheet" href="static/pico/css/pico.min.css" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body class="container">
+    <nav>
+      <ul>
+        <li><strong>House Price Predictor</strong></li>
+      </ul>
+      <ul>
+        <li>
+          <a target="_blank" href="https://twitter.com/justFaisaljan"
+            >Follow Me</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://github.com/FaisaljanBaloch/simple-linear-regression-model-for-price-prediction"
+            role="button"
+            target="_blank"
+            >GitHub</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-				<div class="submit_button">
-					<button type="submit">Predict</button>
-				</div>
+    <article>
+      <form id="appForm">
+        <label for="sizeOfHouse">
+          Size of House (in sqft). minimum size of 120
+          <input
+            type="number"
+            id="sizeOfHouse"
+            name="sizeOfHouse"
+            placeholder="eg. 180"
+			min="120"
+            required
+          />
+		  <ins id="error"></ins>
+        </label>
 
-				{% with messages = get_flashed_messages() %}
-				  {% if messages %}
-				    {% for message in messages %}
-				      <p class="alert">{{ message }}</p>
-				    {% endfor %}
-				  {% endif %}
-				{% endwith %}
-			</fieldset>
-		</form>
-	</div>
-</body>
+        <!-- Button -->
+        <button id="predictBtn" type="submit">Predict</button>
+
+        <hgroup>
+          <h2>Result</h2>
+          <h3 id="predictedPrice">No Result</h3>
+        </hgroup>
+      </form>
+    </article>
+
+    <p>
+      This model is built from scratch using ❤️ and Python by <a target="_blank" href="https://github.com/FaisaljanBaloch/">Faisal Jan</a>. It predicts
+      the price of houses based on the house <ins>sqft living</ins>.
+    </p>
+
+    <script src="static/main.js"></script>
+  </body>
 </html>
