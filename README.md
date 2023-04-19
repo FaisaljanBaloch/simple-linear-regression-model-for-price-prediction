@@ -1,5 +1,5 @@
 # Simple Python LinearRegression Model
-This model is built from scratch using Python by Faisal Jan. It predicts the price of houses based on the house sqft_living. This project taught me many machine learning and datascience concepts, such as Feature Engineering, Data cleaning, knowing the ML models(Linear Regression, Logistic Regression, SVM), and the most important how machine actually learns and how these models are built on top of Linear Algebra and Calculus.
+This model is built from scratch using ❤️ and Python by Faisal Jan. It predicts the price of houses based on the house sqft_living. This project taught me many machine learning and datascience concepts, such as Feature Engineering, Data cleaning, knowing the ML models(Linear Regression, Logistic Regression, SVM), and the most important how machine actually learns and how these models are built on top of Linear Algebra and Calculus.
 
 ## Installation
 
@@ -23,6 +23,7 @@ To run the project
 $ python setup.py
 
 ```
-#### Thank you for being here, Have a good day!
+
+> Thank You for being here, Have a good day!
 
 [Go top &#8593;](#simple-python-linearregression-model)
