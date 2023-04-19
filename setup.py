@@ -1,29 +1,32 @@
 from flask import Flask
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, jsonify
 
 # import linear regression model
-from models.linear_regression import LinearRegression
+from models import LinearRegression
 
 app = Flask(__name__)
+
 app.config['SECRET_KEY'] = 'you will definately guess me'
-model = LinearRegression() # create instance of linear model
+model = LinearRegression()  # create instance of linear model
+
 
 @app.route('/')
 def index():
-	""" Render the index view """
-	return render_template('index.html')
+    """ Render the index view """
+    return render_template('index.html')
 
-@app.route('/predict', methods=['POST', 'GET'])
+
+@app.route('/predict', methods=['GET'])
 def predict_price():
-	if request.method == 'POST':
-		size_of_house = int(request.form['size_of_house'])
-		predicted_price = model.predict(size_of_house)
-		flash(f'Size of house: {size_of_house} Predicted price: {predicted_price}')
-		return redirect(url_for('index'))
+    """ Predict the price of a house"""
+    if request.method == 'GET' and request.args.get('sizeOfHouse'):
+        size_of_house = int(request.args.get('sizeOfHouse'))
+        predicted_price = model.predict(size_of_house)
+        return jsonify(price=predicted_price), 200
 
-	else:
-		flash('Error: Invalid request')
-		return redirect(url_for('index'))
+    else:
+        return jsonify(error='Invalid request'), 400
 
-if __name__=='__main__':
-	app.run()
+
+if __name__ == '__main__':
+    app.run()
